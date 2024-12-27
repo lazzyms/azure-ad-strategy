@@ -3,4 +3,7 @@ tests/
 .github/
 tsconfig.json
 jest.config.js
+.eslintrc.js
+.prettierrc
 *.tgz
+.git*

@@ -12,8 +12,21 @@ jobs:
         with:
           node-version: "18.x"
           registry-url: "https://registry.npmjs.org"
-      - run: npm ci
-      - run: npm run build
-      - run: npm publish --access public
+
+      # Install dependencies with legacy peer deps
+      - name: Install dependencies
+        run: npm install --legacy-peer-deps
+
+      # Run build
+      - name: Build
+        run: npm run build
+
+      # Run tests
+      - name: Test
+        run: npm test
+
+      # Publish to npm
+      - name: Publish
+        run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
