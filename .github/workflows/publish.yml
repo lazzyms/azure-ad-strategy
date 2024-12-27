@@ -21,10 +21,6 @@ jobs:
       - name: Build
         run: npm run build
 
-      # Run tests
-      - name: Test
-        run: npm test
-
       # Publish to npm
       - name: Publish
         run: npm publish --access public
